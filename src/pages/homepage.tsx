@@ -1,57 +1,50 @@
 import {BaseLayout} from "@/layouts/baselayout.tsx";
-import {animated, useSpring} from "@react-spring/web";
+import {animated, useSpring, useTrail} from "@react-spring/web";
 
 export const HomePage: React.FC = () => {
 
 	const intro = useSpring({
-		from: {firstNameY: "-23vw", lastNameY: "23vw"},
-		to: {firstNameY: "0vw", lastNameY: "0vw"},
+		config: {mass: 5, tension: 2000, friction: 200},
+		from: {opacity: 0, firstNameY: "-23vw", lastNameY: "23vw"},
+		to: {opacity: 1, firstNameY: "0vw", lastNameY: "0vw"},
 	})
 
-	const webdev = useSpring({
-		from: {x: 400},
-		to: {x: 0},
-	});
-
-	const appdev = useSpring({
-		from: {x: 400},
-		to: {x: 0},
-		delay: 500
-	});
-
-	const backenddev = useSpring({
-		from: {x: 400},
-		to: {x: 0},
-		delay: 1000
-	});
+	const devType = useTrail(3, {
+		config: {mass: 5, tension: 2000, friction: 200},
+		from: {opacity: 0, x: 0, y: -100},
+		to: {opacity: 1, x: 0, y: 0},
+	})
 
 	return <BaseLayout title="Julian Buse">
 		<animated.div className="flex overflow-hidden">
-			<animated.h1 style={{y: intro.firstNameY}}
-						 className="font-normal tracking-tighter leading-none text-[23vw]">Julian
+			<animated.h1 style={{opacity: intro.opacity, y: intro.firstNameY}}
+						 className="font-black tracking-tighter leading-none text-[19.73vw]">Julian
 			</animated.h1>
-			<animated.h1 style={{y: intro.lastNameY}}
-						 className="font-normal tracking-tighter leading-none text-[23vw] ml-[4vw]">Buse
+			<animated.h1 style={{opacity: intro.opacity, y: intro.lastNameY}}
+						 className="font-black tracking-tighter leading-none text-[19.73vw] ml-[4vw]">Buse
 			</animated.h1>
 		</animated.div>
 		<div className="w-screen flex">
-			<div className="w-[55vw] pr-[2vw]">
+			<div className="w-[58vw] pr-[2vw]">
 				<animated.p style={{}}
-							className="text-md sm:text-xl md:text-2xl lg:text-3xl xl:text-5xl font-light ml-[1vw] text-neutral-400">
+							className="text-md sm:text-xl md:text-2xl lg:text-3xl xl:text-5xl font-light ml-[1vw] text-neutral-200">
 					Hi, I'm Julian Buse, a software developer from Germany
 
 				</animated.p>
 			</div>
-			<div className="w-[44vw] pl-[1vw] border-l-2 border-neutral-50">
-				<animated.p style={{}}
-							className="text-md sm:text-xl md:text-2xl lg:text-3xl xl:text-5xl font-light ml-5 text-neutral-400">
-					<animated.span style={{x: webdev.x}}>Websites</animated.span>
-					<br/>
-					<animated.span style={{x: appdev.x}}>Mobile Apps</animated.span>
-					<br/>
-					<animated.span style={{x: backenddev.x}}>Backend & Server</animated.span>
-					<br/>
-				</animated.p>
+			<div className="w-[44vw] pl-[1vw] border-l-2 border-neutral-500 overflow-hidden">
+				<animated.div style={{}}
+							  className="text-md sm:text-xl md:text-2xl lg:text-3xl xl:text-5xl font-semibold ml-5 text-neutral-300">
+					<div className="overflow-hidden">
+						<animated.p style={{...devType[0]}}>Websites</animated.p>
+					</div>
+					<div className="overflow-hidden">
+						<animated.p style={{...devType[1]}}>Mobile Apps</animated.p>
+					</div>
+					<div className="overflow-hidden">
+						<animated.p style={{...devType[2]}}>Backend & Server</animated.p>
+					</div>
+				</animated.div>
 			</div>
 
 		</div>

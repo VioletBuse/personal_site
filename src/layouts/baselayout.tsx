@@ -7,7 +7,7 @@ interface BaselayoutProps {
 }
 
 export const BaseLayout: React.FC<BaselayoutProps> = ({children, title}) => {
-	return <div className="min-h-screen bg-black text-neutral-50">
+	return <div className="min-h-[100dvh] bg-black text-neutral-50">
 		<Helmet>
 			<title>{title}</title>
 		</Helmet>
