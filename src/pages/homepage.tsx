@@ -16,6 +16,9 @@ export const HomePage: React.FC = () => {
 	})
 
 	return <BaseLayout title="Julian Buse">
+		<div className="absolute bottom-0 right-0 p-4 -z-[100] bg-red-300 w-screen h-screen">
+
+		</div>
 		<animated.div className="flex overflow-hidden">
 			<animated.h1 style={{opacity: intro.opacity, y: intro.firstNameY}}
 						 className="font-black tracking-tighter leading-none text-[19.73vw]">Julian
@@ -46,7 +49,6 @@ export const HomePage: React.FC = () => {
 					</div>
 				</animated.div>
 			</div>
-
 		</div>
 	</BaseLayout>
 }
