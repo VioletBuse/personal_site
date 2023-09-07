@@ -1,5 +1,6 @@
 import {BaseLayout} from "@/layouts/baselayout.tsx";
 import {animated, useSpring, useTrail} from "@react-spring/web";
+import {HomepageBackground} from "@/components/homepagebackground.tsx";
 
 export const HomePage: React.FC = () => {
 
@@ -15,11 +16,9 @@ export const HomePage: React.FC = () => {
 		to: {opacity: 1, x: 0, y: 0},
 	})
 
-	return <BaseLayout title="Julian Buse">
-		<div className="absolute bottom-0 right-0 p-4 -z-[100] bg-red-300 w-screen h-screen">
-
-		</div>
-		<animated.div className="flex overflow-hidden">
+	return <div>
+		{/*<HomepageBackground/>*/}
+		<animated.div className="flex overflow-hidden mt-30">
 			<animated.h1 style={{opacity: intro.opacity, y: intro.firstNameY}}
 						 className="font-black tracking-tighter leading-none text-[19.73vw]">Julian
 			</animated.h1>
@@ -37,7 +36,7 @@ export const HomePage: React.FC = () => {
 			</div>
 			<div className="w-[44vw] pl-[1vw] border-l-2 border-neutral-500 overflow-hidden">
 				<animated.div style={{}}
-							  className="text-md sm:text-xl md:text-2xl lg:text-3xl xl:text-5xl font-semibold ml-5 text-neutral-300">
+							  className="text-md sm:text-xl md:text-2xl lg:text-3xl xl:text-5xl font-medium ml-5 text-neutral-100">
 					<div className="overflow-hidden">
 						<animated.p style={{...devType[0]}}>Websites</animated.p>
 					</div>
@@ -50,5 +49,5 @@ export const HomePage: React.FC = () => {
 				</animated.div>
 			</div>
 		</div>
-	</BaseLayout>
+	</div>
 }
