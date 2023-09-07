@@ -37,14 +37,14 @@ export const HomePage: React.FC = () => {
 		<div className="w-screen flex">
 			<div className="w-[55vw] pr-[2vw]">
 				<animated.p style={{}}
-							className="text-md sm:text-xl md:text-2xl lg:text-3xl xl:text-5xl font-light ml-5 text-neutral-300">
+							className="text-md sm:text-xl md:text-2xl lg:text-3xl xl:text-5xl font-light ml-[1vw] text-neutral-400">
 					Hi, I'm Julian Buse, a software developer from Germany
 
 				</animated.p>
 			</div>
 			<div className="w-[44vw] pl-[1vw] border-l-2 border-neutral-50">
 				<animated.p style={{}}
-							className="text-md sm:text-xl md:text-2xl lg:text-3xl xl:text-5xl font-light ml-5 text-neutral-300">
+							className="text-md sm:text-xl md:text-2xl lg:text-3xl xl:text-5xl font-light ml-5 text-neutral-400">
 					<animated.span style={{x: webdev.x}}>Websites</animated.span>
 					<br/>
 					<animated.span style={{x: appdev.x}}>Mobile Apps</animated.span>
